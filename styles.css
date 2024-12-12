@@ -29,7 +29,7 @@ body {
 }
 
 .logo {
-    max-width: 600px;
+    max-width: 810px;
     height: auto;
 }
 
@@ -44,7 +44,7 @@ body {
 
 .leaf-border {
     position: absolute;
-    top: 65%;
+    top: 76%;
     left: 0;
     width: 100vw;
     z-index: 3;
@@ -132,22 +132,24 @@ body {
     top: 65%;
     right: 18%;
     object-fit: contain;
-    height: 25%;
+    height: 22%;
+    width: auto;
     z-index: 1;
 }
 
 .footer {
     position: absolute;
-    width: 100%;
+    width: 100vw;
     height: 100px;
     background-color: #4f1309;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 20px;
+    padding-left: 30px;
     padding-bottom: 10px;
     margin-top: 0;
     z-index: 5;
+    overflow: hidden;
     right: 0;
 }
 
@@ -157,6 +159,7 @@ body {
 }
 
 .publishing-logo {
+    padding-left: 20px;
     width: 80px;
     height: auto;
     margin-right: 20px;
@@ -170,6 +173,7 @@ body {
     color: white;
     font-size: 11px;
     line-height: 1.2;
+    overflow: hidden;
 }
 
 .footer-text-container p {
@@ -187,7 +191,7 @@ body {
 }
 
 .large-paragraph {
-    font-size: 18px;
+    font-size: 24px;
     line-height: 1.6;
     color: #fffefe;
     max-width: 68%;
@@ -195,7 +199,7 @@ body {
 }
 
 .columns-container {
-    padding-left: 40%;
+    padding-left: 34%;
     display: flex;
     justify-content: center;
     gap: 50px;
@@ -206,12 +210,12 @@ body {
 }
 
 .column {
-    width: 150px;
+    width: 250px;
     text-align: left;
 }
 
 h3 {
-    font-size: 30px;
+    font-size: 40px;
     color: #fffefe;
     margin-bottom: 10px;
 }
@@ -223,7 +227,7 @@ ul {
 
 ul li {
     margin: 8px 0;
-    font-size: 16px;
+    font-size: 25px;
     color: #fffefe;
 }
 
@@ -232,12 +236,15 @@ ul li {
     top: 0;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
     .hero-section {
         height: 60vh;
     }
     .columns-container {
         padding-left: 20%;
+    }
+    .leaf-border {
+        top: 70%;
     }
 }
 
@@ -321,5 +328,96 @@ ul li {
     .footer-text-container {
         font-size: 10px;
         text-align: center;
+    }
+}
+/* General styling remains unchanged */
+body {
+    background: #222;
+}
+
+#leaves {
+    position: relative; /* Establish positioning context */
+    top: -50px;
+    width: 100%;
+    text-align: right;
+    z-index: 9999; /* Bring leaves in front of other elements */
+}
+
+#leaves i {
+    display: inline-block;
+    width: 100px; /* Adjust width for your image */
+    height: 100px; /* Adjust height for your image */
+    background-image: url(LeafImage-01.png); /* Path to your image */
+    background-size: contain; /* Ensure the image covers the element */
+    background-repeat: no-repeat; /* Prevent tiling */
+    /*border-radius: 50%; /* Optional: adjust to match your image shape */
+    box-shadow: inset 0px 0px 1px #222;
+    z-index: 1;
+    animation: falling 8s 0s infinite; /* Slows down animation */
+}
+
+
+
+/* Other styles remain unchanged */
+
+/* Specific animations for each leaf */
+#leaves i:nth-of-type(2n) { animation: falling2 8s 0s infinite; }
+#leaves i:nth-of-type(3n) { animation: falling3 8s 0s infinite; }
+
+#leaves i:before {
+  position: absolute;
+  content: '';
+  top: 117px;
+  right: 9px;
+  height: 27px;
+  width: 32px;
+  transform: rotate(49deg);
+  border-radius: 0% 15% 15% 0%;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  background: linear-gradient(to right, rgba(0,100,0,1), #005600);
+  z-index: 1;
+}
+
+#leaves i:after {
+  content: '';
+  height: 125px;
+  width: 10px;
+  background: linear-gradient(to right, rgba(0,0,0,.15), rgba(0,0,0,0));
+  display: block;
+  transform: rotate(125deg);
+  position: absolute;
+  left: 85px;
+  border-radius:50%;
+}
+
+/* Animation timings */
+@keyframes falling {
+    0% {
+        -webkit-transform: translate3d(300px, 0, 0) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translate3d(-350px, 700px, 0) rotate(90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes falling3 {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0) rotate(-20deg);
+    }
+    100% {
+        -webkit-transform: translate3d(-230px, 640px, 0) rotate(-70deg);
+        opacity: 0;
+    }
+}
+
+@keyframes falling2 {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0) rotate(90deg);
+    }
+    100% {
+        -webkit-transform: translate3d(-400px, 680px, 0) rotate(0deg);
+        opacity: 0;
     }
 }
