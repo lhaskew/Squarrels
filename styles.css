@@ -1,177 +1,193 @@
+/* Global styles */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-rows: 70vh auto; /* Hero, bottom section, and footer */
+    grid-template-columns: 100%;
 }
 
+/* Hero Section */
 .hero-section {
-    height: 70vh;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
     position: relative;
     overflow: hidden;
+    height: 70vh;  /* Ensure full viewport height */
 }
 
 .background-photo {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
     z-index: 0;
 }
 
 .logo-container {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
     z-index: 2;
+    top: 7%;
+    transform: translateY(0%);
+    position: absolute;
 }
 
 .logo {
-    max-width: 810px;
+    max-width: 100%;
     height: auto;
 }
 
+/* Animal Image */
 .animal-image {
-    position: absolute;
-    top: 30%;
-    left: -15%;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    justify-self: start;
+    align-self: center;
+    height: 70%;
     object-fit: contain;
-    height: 130%;
     z-index: 1;
+    transform: translateX(-33%) translateY(3.4%); /* Adjusted movement */
 }
 
+/* Leaf Border */
 .leaf-border {
-    position: absolute;
-    top: 76%;
-    left: 0;
-    width: 100vw;
-    z-index: 3;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
     display: flex;
     justify-content: center;
+    align-items: center;
+    z-index: 3;
     overflow: hidden;
-}
-
-.leaf-border-image-left, .leaf-border-image-right {
-    width: 60%;
-    height: auto;
-    position: relative;
+    position: absolute;
+    top: 66%;  /* Position the leaf border to cover the harsh line */
+    width: 100%;
 }
 
 .leaf-border-image-left {
+    width: 60%;
+    height: auto;
+    position: relative;
     left: 0;
 }
 
 .leaf-border-image-right {
+    width: 60%;
+    height: auto;
+    position: relative;
     left: -5%;
 }
 
+/* Bottom Section */
 .bottom-section {
-    height: 75vh;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
     background: linear-gradient(to bottom, #6f2716 0%, #4f1309 100%);
     position: relative;
-    overflow: hidden;
-    padding-bottom: 10px;
-}
-
-.golden-acorn {
-    position: absolute;
-    bottom: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    height: 360px;
     z-index: 2;
+    padding: 0; /* Ensure no padding */
+    margin-top: 0; /* Remove any gap with the hero section */
+    width: 100%; /* Make sure it covers full width */
+    margin: 0;
+    overflow: hidden;
 }
 
-.falling-leaf {
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    width: 50px;
+
+/* Content wrapper (menu and large paragraph) */
+.content-wrapper {
+    position: relative;
+    width: 100%;  /* Full width */
+    z-index: 2; /* Ensure content is above the gradient */
+    text-align: center; /* Center the text */
+    padding: 0 10%; /* Reduce padding to avoid large white space */
+    background: inherit; /* Inherit gradient background */
+    margin: 0; /* Remove margin to eliminate the gap */
+    margin-top: 0; /* Make sure it flows with the gradient without any extra space */
+}
+
+.large-paragraph-container {
+    padding: 20px;
+    padding-top: 125px;
+    background-color: #6f2716;
+}
+
+.large-paragraph {
+    font-size: 23px;
+    line-height: 1.6;
+    color: #fffefe;
+    max-width: 68%;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+
+
+/* Golden Acorn Image */
+.golden-acorn {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    justify-self: center;
+    align-self: end;
+    transform: translateY(-34%);
+    width: auto;
+    height: 80%;
+    z-index: 2;
+    color: white;
+}
+
+/* Falling Leaf */
+.falling-leaf, .falling-leaf-variation {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    justify-self: center;
+    align-self: start;
+    width: 5%;
     animation: fallStraightDown 8s ease-in-out infinite;
     z-index: 4;
 }
 
-@keyframes fallStraightDown {
-    0% {
-        top: -10%;
-        left: 50%;
-    }
-    100% {
-        top: 80%;
-        left: 50%;
-    }
-}
-
-.falling-leaf-variation {
-    position: absolute;
-    top: -10%;
-    left: 50%;
-    width: 40px;
-    animation: fallWithRotation 6s ease-in-out infinite;
-    z-index: 4;
-}
-
-@keyframes fallWithRotation {
-    0% {
-        top: -10%;
-        left: 50%;
-        transform: rotate(0deg);
-    }
-    100% {
-        top: 90%;
-        left: calc(50% + 100px);
-        transform: rotate(360deg);
-    }
-}
-
-.text-image {
-    position: absolute;
-    top: 65%;
-    right: 18%;
-    object-fit: contain;
-    height: 22%;
-    width: auto;
-    z-index: 1;
-}
-
+/* Footer */
 .footer {
-    position: absolute;
-    width: 100vw;
-    height: 100px;
-    background-color: #4f1309;
-    display: flex;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: 10% 30% auto;
     align-items: center;
-    padding-left: 30px;
-    padding-bottom: 10px;
-    margin-top: 0;
+    background-color: #4f1309;
+    padding: 0 3%;
     z-index: 5;
-    overflow: hidden;
-    right: 0;
 }
 
 .publishing-logo-container {
+    grid-column: 1 / 2;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
 }
 
 .publishing-logo {
-    padding-left: 20px;
-    width: 80px;
+    width: 50%;
     height: auto;
-    margin-right: 20px;
+
 }
 
 .footer-text-container {
+    grid-column: 2 / 3;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 300px;
     color: white;
-    font-size: 11px;
+    font-size: 1%;
     line-height: 1.2;
     overflow: hidden;
 }
@@ -184,240 +200,59 @@ body {
     font-weight: bold;
 }
 
-.large-paragraph-container {
-    padding: 20px;
-    padding-top: 125px;
-    background-color: #6f2716;
-}
-
-.large-paragraph {
-    font-size: 24px;
-    line-height: 1.6;
-    color: #fffefe;
-    max-width: 68%;
-    margin: 0 auto;
-}
 
 .columns-container {
-    padding-left: 34%;
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    position: absolute;
-    padding-top: 30px;
-    background-color: transparent;
-    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; /* 6 equal columns */
+    width: 100%;
+    max-width: 100%;
+    justify-items: stretch; /* Ensure columns fill the space */
+    gap: 0; /* No gap between columns */
+    background-color:#6f2716;
 }
 
+/* Individual columns */
 .column {
-    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     text-align: left;
 }
 
-h3 {
-    font-size: 40px;
-    color: #fffefe;
-    margin-bottom: 10px;
+.menu-column h3,
+.media-column h3 {
+    color: #fff;
+    font-size: 1.5em;
+    text-align: left;
+}
+.menu-column {
+    grid-column: 3 / 4; /* Place the menu in the 3rd column */
+
 }
 
-ul {
-    list-style-type: none;
-    padding-left: 0;
+.media-column {
+    grid-column: 4 / 5; /* Place the media in the 4th column */
 }
 
-ul li {
-    margin: 8px 0;
-    font-size: 25px;
-    color: #fffefe;
+/* Make all text in the columns white */
+.column {
+    color: #fff; /* Set text color to white */
+    text-align: left;
 }
 
-.menu-column, .media-column {
-    position: relative;
-    top: 0;
+/* Remove bullet points from list items */
+.column ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
 }
 
-@media (max-width: 1024px) {
-    .hero-section {
-        height: 60vh;
-    }
-    .columns-container {
-        padding-left: 20%;
-    }
-    .leaf-border {
-        top: 70%;
-    }
+.column li {
+    padding: 5px 0; /* Optional: adds some space between list items */
+    font-size: 1.3em;
 }
 
-@media (max-width: 768px) {
-    .hero-section {
-        height: 50vh;
-    }
-
-    .logo-container {
-        top: 15%;
-        transform: translate(-50%, 0);
-    }
-
-    .animal-image {
-        top: 25%;
-        left: -20%;
-        height: 100%;
-    }
-
-    .leaf-border {
-        top: 60%;
-    }
-
-    .columns-container {
-        flex-direction: column;
-        padding-left: 0;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .column {
-        width: 100%;
-        text-align: center;
-    }
-
-    .large-paragraph {
-        font-size: 16px;
-        max-width: 80%;
-    }
-
-    .footer {
-        flex-direction: column;
-        padding-left: 10px;
-    }
-
-    .footer-text-container {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-section {
-        height: 40vh;
-    }
-
-    .logo-container {
-        top: 10%;
-    }
-
-    .animal-image {
-        top: 20%;
-        left: -30%;
-        height: 80%;
-    }
-
-    .text-image {
-        top: 50%;
-        right: 10%;
-        height: 20%;
-    }
-
-    .golden-acorn {
-        height: 250px;
-    }
-
-    .large-paragraph {
-        font-size: 14px;
-        max-width: 90%;
-    }
-
-    .footer-text-container {
-        font-size: 10px;
-        text-align: center;
-    }
-}
-/* General styling remains unchanged */
-body {
-    background: #222;
-}
-
-#leaves {
-    position: relative; /* Establish positioning context */
-    top: -50px;
-    width: 100%;
-    text-align: right;
-    z-index: 9999; /* Bring leaves in front of other elements */
-}
-
-#leaves i {
-    display: inline-block;
-    width: 100px; /* Adjust width for your image */
-    height: 100px; /* Adjust height for your image */
-    background-image: url(LeafImage-01.png); /* Path to your image */
-    background-size: contain; /* Ensure the image covers the element */
-    background-repeat: no-repeat; /* Prevent tiling */
-    /*border-radius: 50%; /* Optional: adjust to match your image shape */
-    box-shadow: inset 0px 0px 1px #222;
-    z-index: 1;
-    animation: falling 8s 0s infinite; /* Slows down animation */
-}
-
-
-
-/* Other styles remain unchanged */
-
-/* Specific animations for each leaf */
-#leaves i:nth-of-type(2n) { animation: falling2 8s 0s infinite; }
-#leaves i:nth-of-type(3n) { animation: falling3 8s 0s infinite; }
-
-#leaves i:before {
-  position: absolute;
-  content: '';
-  top: 117px;
-  right: 9px;
-  height: 27px;
-  width: 32px;
-  transform: rotate(49deg);
-  border-radius: 0% 15% 15% 0%;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
-  background: linear-gradient(to right, rgba(0,100,0,1), #005600);
-  z-index: 1;
-}
-
-#leaves i:after {
-  content: '';
-  height: 125px;
-  width: 10px;
-  background: linear-gradient(to right, rgba(0,0,0,.15), rgba(0,0,0,0));
-  display: block;
-  transform: rotate(125deg);
-  position: absolute;
-  left: 85px;
-  border-radius:50%;
-}
-
-/* Animation timings */
-@keyframes falling {
-    0% {
-        -webkit-transform: translate3d(300px, 0, 0) rotate(0deg);
-    }
-    100% {
-        -webkit-transform: translate3d(-350px, 700px, 0) rotate(90deg);
-        opacity: 0;
-    }
-}
-
-@keyframes falling3 {
-    0% {
-        -webkit-transform: translate3d(0, 0, 0) rotate(-20deg);
-    }
-    100% {
-        -webkit-transform: translate3d(-230px, 640px, 0) rotate(-70deg);
-        opacity: 0;
-    }
-}
-
-@keyframes falling2 {
-    0% {
-        -webkit-transform: translate3d(0, 0, 0) rotate(90deg);
-    }
-    100% {
-        -webkit-transform: translate3d(-400px, 680px, 0) rotate(0deg);
-        opacity: 0;
-    }
+.column h3 {
+    text-align: left; /* Left-align the headers */
 }
