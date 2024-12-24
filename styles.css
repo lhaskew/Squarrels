@@ -1,10 +1,22 @@
-/* Global styles */
+/* Body and general layout */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    background-color: black; /* Black background for extra space */
+}
+
+/* Main content wrapper */
+.main-container {
+    max-width: 1500px; /* Max width for content */
+    width: 100%; /* Full width until max is reached */
+    background-color: black; /* Inherit black for areas where content might have gaps */
     display: grid;
-    grid-template-rows: 70vh auto; /* Hero, bottom section, and footer */
+    grid-template-rows: 70vh auto; /* Hero and other sections */
     grid-template-columns: 100%;
 }
 
@@ -117,7 +129,6 @@ body {
     overflow: hidden;
 }
 
-
 /* Content wrapper (menu and large paragraph) */
 .content-wrapper {
     position: relative;
@@ -145,8 +156,6 @@ body {
     padding-bottom: 80px;
 }
 
-
-
 /* Golden Acorn Image */
 .golden-acorn {
     grid-row: 1 / 2;
@@ -173,6 +182,7 @@ body {
 
 /* Footer */
 .footer {
+    max-width:100%;
     display: grid;
     grid-template-columns: 10% 30% auto;
     align-items: center;
@@ -192,7 +202,6 @@ body {
 .publishing-logo {
     width: 50%;
     height: auto;
-
 }
 
 .footer-text-container {
@@ -201,7 +210,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     color: white;
-    font-size: 1%;
+    font-size: 10%;
     line-height: 1.2;
     overflow: hidden;
 }
@@ -213,7 +222,6 @@ body {
 .footer-text-container p:first-of-type {
     font-weight: bold;
 }
-
 
 .columns-container {
     display: grid;
@@ -242,7 +250,6 @@ body {
 }
 .menu-column {
     grid-column: 3 / 4; /* Place the menu in the 3rd column */
-
 }
 
 .media-column {
@@ -284,7 +291,7 @@ body {
         transform: translateX(-33%);
     }
     .text-image {
-        transform: translateX(-35%) translateY(-80%);
+        transform: translateX(-35%) translateY(-120%);
     }
     .golden-acorn {
         transform: translateY(-34%);
@@ -369,6 +376,9 @@ body {
         position: absolute;
         transform: translateY(60%);
     }
+    .footer-text-container {
+        font-size-adjust: 12%;
+    }
 }
 
 /* For screens between 576px and 767px (Small Tablets) */
@@ -435,11 +445,12 @@ body {
 
     .animal-image {
         transform: translateX(10%) translateY(30%);
-        height: 40%;
+        height: 50%;
     }
 
     .text-image {
-        transform: translateX(-15%) translateY(-55%);
+        transform: translateX(-15%) translateY(-170%);
+        height: -55%;
     }
 
     .golden-acorn {
@@ -472,5 +483,19 @@ body {
 
     .column {
         text-align: center;  /* Center the text in columns */
+    }
+
+    .leaf-border-image-left {
+        width: 60%;
+        height: auto;
+        position: relative;
+        left: 0;
+    }
+    
+    .leaf-border-image-right {
+        width: 60%;
+        height: auto;
+        position: relative;
+        left: -5%;
     }
 }
