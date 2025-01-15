@@ -155,7 +155,7 @@ body {
     align-self: end;
     transform: translateY(-34%);
     width: auto;
-    height: 5%;
+    height: 75%;
     z-index: 2;
     color: white;
 }
@@ -170,57 +170,66 @@ body {
     z-index: 4;
 }
 
+/* Footer Container */
 .footer {
     max-width: 100%;
-    display: grid;
-    grid-template-columns: 10% 30% auto;
-    align-items: center;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center; /* Align items vertically */
     background-color: #4f1309;
     padding: 0 3%;
     z-index: 5;
-    justify-content: space-between;
+    height: 100px; /* Ensure this height is suitable for the text container */
 }
 
+/* Publishing Logo Container */
 .publishing-logo-container {
-    grid-column: 1 / 2;
     display: flex;
-    align-items: center;
+    align-items: center; /* Align logo vertically */
     justify-content: flex-start;
     padding: 10px;
+    height: 100%; /* Make it the same height as the footer */
 }
 
-.footer-text-container p {
-    font-size: 10px;
-    line-height: 1.5;
+.publishing-logo-container img {
+    height: 100%; /* Match the logo height to the height of the container */
+    width: auto; /* Keep aspect ratio */
 }
 
-.publishing-logo {
-    width: 300%;
-    height: auto;
-}
-
+/* Footer Text Container */
 .footer-text-container {
-    padding-left: 0px;
+    padding-left: 10px;
     margin-left: 0px;
     color: white;
     line-height: 1.2;
+    font-size: 0.85em; /* Smaller text */
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center; /* Center the text vertically */
+    height: 100%; /* Ensures text container height is equal to the footer */
 }
 
+/* Adjusting the individual paragraph size */
 .footer-text-container p {
     margin: 0;
+    font-size: 0.85em; /* Adjust the font size of each paragraph */
 }
 
+/* Optionally, adjust the first paragraph size */
 .footer-text-container p:first-of-type {
     font-weight: bold;
+    font-size: 1em;
 }
+
+
 
 .columns-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; /* Default: 6 columns */
     width: 100%;
     max-width: 100%;
     justify-items: stretch;
@@ -331,138 +340,6 @@ body {
         top: 3%;
     }
     .logo {
-        max-width: 60
-    }
-}
-@media (max-width: 767px) {
-    .hero-section {
-        height: 70vh;
-    }
-
-    .logo-container {
-        top: 2%;
-    }
-
-    .animal-image {
-        transform: translateX(15%) translateY(25%);
-        height: 45%;
-    }
-
-    .text-image {
-        transform: translateX(-25%) translateY(-60%);
-    }
-
-    .columns-container {
-        grid-template-columns: 0fr 1fr 1fr 1fr 1fr 0fr;
-    }
-
-    .golden-acorn {
-        transform: translateY(-27%);
-    }
-
-    .large-paragraph {
-        font-size: 18px;
-        max-width: 80%;
-    }
-
-    .footer-text-container {
-        font-size: 0.8em;
-    }
-
-    .menu-column h3,
-    .media-column h3 {
-        font-size: 1.2em;
-    }
-
-    .column li {
-        font-size: 1em;
-    }
-}
-@media (max-width: 767px) {
-    .hero-section {
-        height: 70vh;
-    }
-
-    .logo-container {
-        top: 2%;
-    }
-
-    .animal-image {
-        transform: translateX(15%) translateY(25%);
-        height: 45%;
-    }
-
-    .text-image {
-        transform: translateX(-25%) translateY(-60%);
-    }
-
-    .columns-container {
-        grid-template-columns: 0fr 1fr 1fr 1fr 1fr 0fr;
-    }
-
-    .golden-acorn {
-        transform: translateY(-27%);
-    }
-
-    .large-paragraph {
-        font-size: 18px;
-        max-width: 80%;
-    }
-
-    .footer-text-container {
-        font-size: 0.8em;
-    }
-
-    .menu-column h3,
-    .media-column h3 {
-        font-size: 1.2em;
-    }
-
-    .column li {
-        font-size: 1em;
-    }
-}
-@media (max-width: 767px) {
-    .hero-section {
-        height: 70vh;
-    }
-
-    .logo-container {
-        top: 2%;
-    }
-
-    .animal-image {
-        transform: translateX(15%) translateY(25%);
-        height: 45%;
-    }
-
-    .text-image {
-        transform: translateX(-25%) translateY(-60%);
-    }
-
-    .columns-container {
-        grid-template-columns: 0fr 1fr 1fr 1fr 1fr 0fr;
-    }
-
-    .golden-acorn {
-        transform: translateY(-27%);
-    }
-
-    .large-paragraph {
-        font-size: 18px;
-        max-width: 80%;
-    }
-
-    .footer-text-container {
-        font-size: 0.8em;
-    }
-
-    .menu-column h3,
-    .media-column h3 {
-        font-size: 1.2em;
-    }
-
-    .column li {
-        font-size: 1em;
+        max-width: 60%;
     }
 }
