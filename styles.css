@@ -357,7 +357,7 @@ body {
     .columns-container {
         display: grid;
         grid-template-columns: 1fr;  /* Stack columns vertically */
-        gap: 20px;  /* Add space between columns */
+        gap: 20px;
     }
 
     /* Menu column */
